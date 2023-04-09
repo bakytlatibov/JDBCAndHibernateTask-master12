@@ -1,10 +1,21 @@
 package peaksoft.model;
 
+//import jakarta.persistence.*;
+//import jakarta.persistence.Table;
+
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import javax.persistence.*;
 
-@Table
+@Entity
+@Table(name = "users")
+@NoArgsConstructor
+//@AllArgsConstructor
+@Data
 public class User {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column
@@ -16,8 +27,6 @@ public class User {
     @Column
     private Byte age;
 
-    public User() {
-    }
 
     public User(String name, String lastName, Byte age) {
         this.name = name;
